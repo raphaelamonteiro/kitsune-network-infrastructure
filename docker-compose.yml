@@ -1,31 +1,28 @@
-version: '3'
-
 services:
   backend-1:
     image: php:8.2-apache
     container_name: backend-1
     ports:
-      - "9000:80" # mapeia porta 80 do container p/ porta 9000 do host
+      - "9000:80"
     volumes:
-      - ./backend:/var/www/html # monta a pasta backend
+      - ./kitsune-backend:/var/www/html
     env_file:
-      - ./backend/.env
-    environment: # injetando as configs do banco como variáveis de ambiente, com fallback para o padrão"
+      - ./kitsune-backend/.env
+    environment:
       - DB_HOST=${DB_HOST:-database}
       - DB_NAME=${DB_NAME:-kitsune}
       - DB_USER=${DB_USER:-admin}
       - DB_PASSWORD=${DB_PASSWORD:-123456}
 
-# instâncias idênticas do backend para o balanceamento de carga
   backend-2:
     image: php:8.2-apache
     container_name: backend-2
     ports:
       - "9001:80"
     volumes:
-      - ./backend:/var/www/html
+      - ./kitsune-backend:/var/www/html
     env_file:
-      - ./backend/.env
+      - ./kitsune-backend/.env
     environment:
       - DB_HOST=${DB_HOST:-database}
       - DB_NAME=${DB_NAME:-kitsune}
@@ -38,9 +35,9 @@ services:
     ports:
       - "9002:80"
     volumes:
-      - ./backend:/var/www/html
+      - ./kitsune-backend:/var/www/html
     env_file:
-      - ./backend/.env
+      - ./kitsune-backend/.env
     environment:
       - DB_HOST=${DB_HOST:-database}
       - DB_NAME=${DB_NAME:-kitsune}
@@ -59,7 +56,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     env_file:
-      - ./backend/.env
+      - ./kitsune-backend/.env
 
 volumes:
   postgres-data:

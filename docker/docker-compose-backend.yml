@@ -5,17 +5,18 @@ services:
     image: php:8.2-apache
     container_name: backend-1
     ports:
-      - "9000:80"
+      - "9000:80" # mapeia porta 80 do container p/ porta 9000 do host
     volumes:
-      - ./backend:/var/www/html
+      - ./backend:/var/www/html # monta a pasta backend
     env_file:
       - ./backend/.env
-    environment:
+    environment: # injetando as configs do banco como variáveis de ambiente, com fallback para o padrão"
       - DB_HOST=${DB_HOST:-database}
       - DB_NAME=${DB_NAME:-kitsune}
       - DB_USER=${DB_USER:-admin}
       - DB_PASSWORD=${DB_PASSWORD:-123456}
 
+# instâncias idênticas do backend para o balanceamento de carga
   backend-2:
     image: php:8.2-apache
     container_name: backend-2

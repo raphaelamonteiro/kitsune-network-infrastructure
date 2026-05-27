@@ -8,11 +8,12 @@
 
   <h2> Índice </h2>
 <p>
-  <a href = "#intro"> Introdução </a>  |   
+  <a href= "#intro"> Introdução </a>  |   
   <a href="#scope"> Escopo </a>  |
-  <a href ="#stack"> Tecnologias </a>  | 
-  <a href = "#demo"> Demonstração </a>  |
-  <a href = "#diagram"> Documentação </a> |
+  <a href="#stack"> Tecnologias </a>  | 
+  <a href="#demo"> Demonstração </a>  |
+  <a href="#doc"> Documentação </a> |
+  <a href="#diagram"> Arquitetura </a> |
   <a href="#credit"> Créditos </a>
 </div>
 
@@ -58,6 +59,7 @@ Example configuration for Cross-Origin settings in the application's backend.
 ![Linux](https://img.shields.io/badge/Linux-5E0006?style=for-the-badge&logo=linux&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-5E0006?style=for-the-badge&logo=docker&logoColor=white)
 ![Nginx](https://img.shields.io/badge/Nginx-5E0006?style=for-the-badge&logo=nginx&logoColor=white)
+![HAProxy](https://img.shields.io/badge/HA_Proxy-5E0006?style=for-the-badge&logo=aws&logoColor=white)
 ![Wireguard](https://img.shields.io/badge/Wireguard-5E0006?style=for-the-badge&logo=wireguard&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-5E0006?style=for-the-badge&logo=php&logoColor=white)
 ![React](https://img.shields.io/badge/React-5E0006?style=for-the-badge&logo=react&logoColor=white)
@@ -66,9 +68,15 @@ Example configuration for Cross-Origin settings in the application's backend.
 
 </div>
 
-<!---
-Project overview and purpose.
+## Demonstração
 
+<a id="demo"></a>
+
+## Arquitetura
+
+<a id="diagram"></a>
+
+<!---
 ## Setup Guide
 <a id="install"></a>
 ### EC2 Setup
@@ -89,15 +97,11 @@ Example configuration for Cross-Origin settings in the application's backend.
 - Network Topologies - Click Here
 - Nginx Template - Click Here
 - VPN Template - Click Here
-
-
-## Diagrams and References
-<a id="demo"></a>
 ----->
 
 ## Créditos
 
 <a id="credit"></a>
 
-Desenvolvido por Raphaela Monteiro <br>
-Projeto proposto por Professor Jean Carlos
+Este projeto foi desenvolvido por [Raphaela Monteiro](https://github.com/raphaelamonteiro)  
+com base na proposta acadêmica do professor [Jean Carlos](https://github.com/jeancosta4).

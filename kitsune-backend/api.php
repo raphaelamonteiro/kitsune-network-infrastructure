@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: *'); // permite acesso de qualquer origem (CORS)
 
 $action = $_GET['action'] ?? 'server';
 

@@ -15,7 +15,7 @@ if (file_exists($envFile)) {
     }
 }
 
-// CORS
+// lista de origens permitidas para CORS (react local e produção)
 $allowed_origins = [
     'http://localhost:3000',
     'http://localhost:5173',
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// CONEXÃO COM POSTGRESQL (usando .env)
+// POSTGRESQL (usando .env)
 function getDB() {
     $host = getenv('DB_HOST') ?: 'database';
     $db = getenv('DB_NAME') ?: 'kitsune';
@@ -45,6 +45,7 @@ function getDB() {
     $pass = getenv('DB_PASSWORD') ?: '123456';
     
     try {
+        // PDO é a extensão do PHP para acesso seguro a banco de dados
         $pdo = new PDO("pgsql:host=$host;dbname=$db", $user, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
@@ -74,6 +75,7 @@ if ($action === 'login') {
     $stmt->execute(['username' => $username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
+    // prepared statement previne SQL Injection
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user'] = $username;
         $_SESSION['user_id'] = $user['id'];

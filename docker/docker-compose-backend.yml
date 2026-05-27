@@ -7,7 +7,14 @@ services:
     ports:
       - "9000:80"
     volumes:
-      - ../backend:/var/www/html
+      - ./backend:/var/www/html
+    env_file:
+      - ./backend/.env
+    environment:
+      - DB_HOST=${DB_HOST:-database}
+      - DB_NAME=${DB_NAME:-kitsune}
+      - DB_USER=${DB_USER:-admin}
+      - DB_PASSWORD=${DB_PASSWORD:-123456}
 
   backend-2:
     image: php:8.2-apache
@@ -15,7 +22,14 @@ services:
     ports:
       - "9001:80"
     volumes:
-      - ../backend:/var/www/html
+      - ./backend:/var/www/html
+    env_file:
+      - ./backend/.env
+    environment:
+      - DB_HOST=${DB_HOST:-database}
+      - DB_NAME=${DB_NAME:-kitsune}
+      - DB_USER=${DB_USER:-admin}
+      - DB_PASSWORD=${DB_PASSWORD:-123456}
 
   backend-3:
     image: php:8.2-apache
@@ -23,7 +37,14 @@ services:
     ports:
       - "9002:80"
     volumes:
-      - ../backend:/var/www/html
+      - ./backend:/var/www/html
+    env_file:
+      - ./backend/.env
+    environment:
+      - DB_HOST=${DB_HOST:-database}
+      - DB_NAME=${DB_NAME:-kitsune}
+      - DB_USER=${DB_USER:-admin}
+      - DB_PASSWORD=${DB_PASSWORD:-123456}
 
   database:
     image: postgres:15-alpine
@@ -31,11 +52,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: kitsune
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: ${DB_NAME:-kitsune}
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-123456}
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    env_file:
+      - ./backend/.env
 
 volumes:
   postgres-data:

@@ -37,7 +37,7 @@ const App: React.FC = () => {
     return <Dashboard user={user} onLogout={() => setIsAuthenticated(false)} />;
   }
 
-  return <Login onLoginSuccess={() => window.location.reload()} />;
+  return <Login />;
 };
 
 export default App;

@@ -4,11 +4,10 @@ import { authService } from '../services/api';
 
 import Logo from '../../public/logo.png';
 
-interface LoginProps {
-    onLoginSuccess: () => void;
-}
 
-const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
+
+const Login: React.FC = () => {  // ← mude para: const Login: React.FC = () => {
+
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,29 +16,25 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
         setLoading(true);
         setError('');
 
         try {
-
             const response = await authService.login({
                 username,
                 password
             });
 
             if (response.success) {
-                onLoginSuccess();
+                // FORÇA O REDIRECIONAMENTO DIRETO
+                window.location.href = '/';
             } else {
                 setError(response.message || 'ACESSO NEGADO');
             }
-
         } catch (err) {
             setError('FALHA NA CONEXÃO');
-
         } finally {
             setLoading(false);
-
         }
     };
 

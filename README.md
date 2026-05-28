@@ -13,6 +13,7 @@
   <a href="#stack"> Tecnologias </a>  | 
   <a href="#demo"> Demonstração </a>  |
   <a href="#doc"> Documentação </a> |
+   <a href="#folders"> Estrutura do Repositório </a>  | 
   <a href="#diagram"> Arquitetura </a> |
   <a href="#credit"> Créditos </a>
 </div>
@@ -72,9 +73,44 @@ Example configuration for Cross-Origin settings in the application's backend.
 
 <a id="demo"></a>
 
-## Arquitetura
+## 📦 Estrutura do Repositório
 
-<a id="diagram"></a>
+```bash
+kitsune-network-infrastructure/
+│
+├── docs/
+│   ├── screenshots/               # Capturas de tela do projeto
+│   ├── concepts.md                # Documentação com aprendizados e conceitos do sistema
+│   └── diagrama-redes.jpeg       # Diagrama visual da infraestrutura de rede
+│
+├── kitsune-backend/
+│   ├── .env.example               # Exemplo de variáveis de ambiente
+│   ├── api.php                   # Configuração e entrada da API
+│   └── auth.php                  # Lógica de autenticação
+│
+├── kitsune-frontend/
+│   ├── public/                   # Arquivos estáticos servidos diretamente
+│   ├── src/                      # Código-fonte principal da aplicação (components, pages, services)
+│   ├── .env.example              # Modelo de variáveis de ambiente
+│   ├── vite.config.ts            # Configuração do Vite
+│   ├── tsconfig.json             # Configuração principal do TypeScript
+│   ├── tsconfig.app.json         # Configuração do TypeScript (aplicação)
+│   ├── tsconfig.node.json        # Configuração do TypeScript (Node)
+│   ├── vite-env.d.ts             # Tipagens globais do Vite
+│   ├── package.json              # Dependências e scripts do projeto
+│   ├── package-lock.json         # Lockfile de dependências
+│   ├── index.html                # Entry point da aplicação
+│   └── README.md                 # Documentação do frontend
+│
+├── scripts/
+│   └── demo.sh                   # Script de automação e diagnóstico do sistema
+│
+├── docker-compose.yml            # Define serviços, volumes e redes Docker
+├── haproxy.cfg                   # Configuração do balanceador de carga HAProxy
+├── .gitignore                    # Arquivos ignorados pelo Git
+└── README.md                     # Documentação principal do projeto
+```
+> ⚠️ Importante: o .env contém dados sensíveis e não deve ser versionado em produção.
 
 <!---
 ## Setup Guide
@@ -91,17 +127,22 @@ Nginx configuration as a reverse proxy and load balancer.
 ### CORS
 Example configuration for Cross-Origin settings in the application's backend.
 
-
 ## Diagrams and References
 <a id="diagram"></a>
 - Network Topologies - Click Here
 - Nginx Template - Click Here
 - VPN Template - Click Here
+
 ----->
+
+## Diagrama
+<a id="diagram"></a>
+<div align="center">
+<img src="https://github.com/raphaelamonteiro/kitsune-network-infrastructure/blob/main/docs/diagrama-redes.jpeg" height="500em" >
+</div>
 
 ## Créditos
 
 <a id="credit"></a>
 
-Este projeto foi desenvolvido por [Raphaela Monteiro](https://github.com/raphaelamonteiro)  
-com base na proposta acadêmica do professor [Jean Carlos](https://github.com/jeancosta4).
+💻 Este projeto foi desenvolvido por [Raphaela Monteiro](https://github.com/raphaelamonteiro) com base na proposta acadêmica do professor [Jean Carlos](https://github.com/jeancosta4).

@@ -183,9 +183,8 @@ const Dashboard: React.FC<DashboardProps> = ({
                         href="https://github.com/raphaelamonteiro/kitsune-network-infrastructure"
                         target="_blank"
                         rel="noreferrer"
-                        className="github-link"
-                    >
-                        GITHUB REPOSITORY
+                        className="github-link">
+                        GITHUB
                     </a>
                 </div>
 
